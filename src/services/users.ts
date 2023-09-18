@@ -26,8 +26,6 @@ export const getUserDetail = async (id: number) => {
 };
 
 export const addUsers = async (data: Record<string, unknown>) => {
-    console.log(data, 'data');
-    
     try {
         const res: UsersInterface.Users = await fetchApi({
             baseUrl: 'https://gorest.co.in/public/v2',
