@@ -8,7 +8,7 @@ export default function HeadingLink({ className, classNameTitle, classNameLabel,
 
     return (
         <Card className={clsx('flex flex-row justify-between items-center w-full', className)} withShadow canHover={false}>
-            <div className={clsx('flex flex-row justify-start items-center', withBack && 'space-x-4')}>
+            <div className={clsx('flex flex-row justify-start items-center w-full', withBack && 'space-x-4')}>
                 {withBack && (
                     <div className='cursor-pointer' onClick={() => router.back()}>
                         <Icon name='chevron-left' className='fill-black hover:fill-secondary on-hover' />

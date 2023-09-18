@@ -4,6 +4,15 @@ const nextConfig = {
     compress: true,
     reactStrictMode: true,
     output: 'standalone',
+    async redirects() {
+        return [
+          {
+            source: '/',
+            destination: '/blogs',
+            permanent: true,
+          },
+        ];
+    },    
     experimental: {
         serverActions: true,
         serverComponents: true,

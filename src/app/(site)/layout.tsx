@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import type { Metadata } from 'next';
 import { POPPINS, ROBOTO_MONO } from '@/config/fonts';
-import QueryWrapper from '@/utils/query-wrapper';
 import Header from '@/components/layouts/header';
 import Footer from '@/components/layouts/footer';
 import '@/styles/index.scss';
@@ -31,13 +30,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang='en' className={clsx('scroll-smooth', POPPINS.variable, ROBOTO_MONO.variable)}>
             <body className='flex flex-col w-screen h-auto min-h-screen overflow-x-hidden'>
-                <QueryWrapper>
-                    <div id='layout-default'>
-                        <Header />
-                        <main className='main'>{children}</main>
-                        <Footer />
-                    </div>
-                </QueryWrapper>
+                <div id='layout-default'>
+                    <Header />
+                    <main className='main'>{children}</main>
+                    <Footer />
+                </div>
             </body>
         </html>
     );
