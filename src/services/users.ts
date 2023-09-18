@@ -11,3 +11,16 @@ export const getUsers = async ({ page, per_page }: BlogsInterface.APIParamsBlogs
         throw error;
     }
 };
+
+export const getUserDetail = async (id: number) => {
+    try {
+        const res: UsersInterface.Users = await fetchApi({
+            baseUrl: 'https://gorest.co.in/public/v2',
+            url: `/users/${id}`,
+            method: 'GET',
+        });
+        return res;
+    } catch (error) {
+        throw error;
+    }
+};

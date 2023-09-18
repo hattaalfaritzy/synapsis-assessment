@@ -44,7 +44,7 @@ export default function UsersPage() {
                         key={index}
                         withShadow
                         onClick={() => {
-                            router.push(`/blogs/${value.id}`);
+                            router.push(`/users/${value.id}`);
                         }}
                         className='flex flex-col w-full space-y-3'
                     >
