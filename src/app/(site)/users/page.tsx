@@ -2,7 +2,7 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Button, Card, HeadingLink, ImageWithFallback, ListForm, Pagination } from '@/components/commons';
+import { Button, Card, HeadingLink, Icon, ImageWithFallback, ListForm, Pagination } from '@/components/commons';
 import { getUsers } from '@/services/users';
 
 export default function UsersPage() {
@@ -57,14 +57,35 @@ export default function UsersPage() {
                     <Card
                         key={index}
                         withShadow
-                        onClick={() => {
-                            router.push(`/users/${value.id}`);
-                        }}
-                        className='flex flex-col w-full space-y-3'
+                        canHover={false}
+                        className='flex flex-row justify-between items-center w-full'
                     >
-                        <ListForm title='Name' value={value.name} loading={loading} />
-                        <ListForm title='Gender' value={value.gender} loading={loading} />
-                        <ListForm title='Email' value={value.email} loading={loading} />
+                        <ListForm title={value.name} value={value.email} loading={loading} classNameValue='text-black text-xs lowercase' />
+                        <div className='flex flex-row space-x-2 justify-center items-center'>
+                            <Button
+                                className='p-2.5 rounded-full'
+                                onClick={() => {
+                                    router.push(`/users/${value.id}`);
+                                }}
+                            >
+                                <Icon name='alert' width={16} className='fill-white' />
+                            </Button>
+                            <Button
+                                variant='secondary'
+                                className='p-2.5 rounded-full'
+                                onClick={() => {
+                                    router.push(`/users/${value.id}`);
+                                }}
+                            >
+                                <Icon name='edit' width={16} className='fill-white' />
+                            </Button>
+                            <Button
+                                variant='error'
+                                className='p-2.5 rounded-full'
+                            >
+                                <Icon name='trash' width={16} className='fill-white' />
+                            </Button>
+                        </div>
                     </Card>
                 ))}
             </div>

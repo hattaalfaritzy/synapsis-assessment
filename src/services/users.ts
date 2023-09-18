@@ -24,3 +24,19 @@ export const getUserDetail = async (id: number) => {
         throw error;
     }
 };
+
+export const addUsers = async (data: Record<string, unknown>) => {
+    console.log(data, 'data');
+    
+    try {
+        const res: UsersInterface.Users = await fetchApi({
+            baseUrl: 'https://gorest.co.in/public/v2',
+            url: '/users',
+            method: 'POST',
+            data,
+        });
+        return res;
+    } catch (error) {
+        throw error;
+    }
+};

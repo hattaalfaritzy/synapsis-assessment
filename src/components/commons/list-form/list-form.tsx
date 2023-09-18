@@ -7,7 +7,7 @@ export default function ListForm({ className, classNameValue, title, value, load
             {title && <span className={clsx('text-black text-sm font-semibold', important && 'required-form')}>{title}</span>}
             {loading ? (
                 <span className={clsx('rounded-full bg-secondary/70 h-4 w-2/3 animate-pulse')} />
-            ) : renderValue || <span className={clsx('text-black text-xs capitalize', classNameValue)}>{value ? value : '-'}</span>}
+            ) : renderValue || <span className={clsx(classNameValue || 'text-black text-xs capitalize')}>{value ? value : '-'}</span>}
         </div>
     );
 }

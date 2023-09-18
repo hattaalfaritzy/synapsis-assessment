@@ -5,6 +5,7 @@ const timeout = Number(process.env.API_TIMEOUT || 15000);
 
 export const fetchApi = async ({ method, baseUrl = process.env.BASE_URL, url, params, data, headers, ...rest }: Props) => {
     const finalHeaders = {
+        Authorization: `Bearer ${process.env.TOKEN_AUTH}`,
         rejectUnauthorized: false,
         Accept: 'application/json',
         'Access-Control-Allow-Origin': '*',
