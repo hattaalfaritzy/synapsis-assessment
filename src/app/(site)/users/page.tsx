@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Card, HeadingLink, Icon, ImageWithFallback, ListForm, Pagination } from '@/components/commons';
-import { getUsers } from '@/services/users';
+import { deleteUsers, getUsers } from '@/services/users';
 
 export default function UsersPage() {
     const router = useRouter();
@@ -20,6 +20,18 @@ export default function UsersPage() {
         const res = await getUsers(params);
         setDataUsers(res ?? {});
         setLoading(false);
+    };
+
+    const onDelete = async (id: number) => {
+        try {
+            await deleteUsers(id);
+            getData({
+                page: currentPage,
+                per_page: limitPage,
+            });
+        } catch (e) {
+            console.log('Error delete user:', e);
+        }
     };
 
     useEffect(() => {
@@ -74,7 +86,7 @@ export default function UsersPage() {
                                 variant='secondary'
                                 className='p-2.5 rounded-full'
                                 onClick={() => {
-                                    router.push(`/users/${value.id}`);
+                                    router.push(`/users/edit/${value.id}`);
                                 }}
                             >
                                 <Icon name='edit' width={16} className='fill-white' />
@@ -82,6 +94,7 @@ export default function UsersPage() {
                             <Button
                                 variant='error'
                                 className='p-2.5 rounded-full'
+                                onClick={() => onDelete(value?.id)}
                             >
                                 <Icon name='trash' width={16} className='fill-white' />
                             </Button>

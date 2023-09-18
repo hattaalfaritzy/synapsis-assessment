@@ -40,3 +40,30 @@ export const addUsers = async (data: Record<string, unknown>) => {
         throw error;
     }
 };
+
+export const editUsers = async (id: string | number, data: Record<string, unknown>) => {
+    try {
+        const res: UsersInterface.Users = await fetchApi({
+            baseUrl: 'https://gorest.co.in/public/v2',
+            url: `/users/${id}`,
+            method: 'PUT',
+            data,
+        });
+        return res;
+    } catch (error) {
+        throw error;
+    }
+};
+
+export const deleteUsers = async (id: string | number) => {
+    try {
+        const res: UsersInterface.Users = await fetchApi({
+            baseUrl: 'https://gorest.co.in/public/v2',
+            url: `/users/${id}`,
+            method: 'DELETE',
+        });
+        return res;
+    } catch (error) {
+        throw error;
+    }
+};

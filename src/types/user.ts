@@ -6,6 +6,7 @@ declare namespace UsersInterface {
         email: string;
         gender: string;
         status: string;
+        [key: string]: any;
     }
 
     export interface Links {

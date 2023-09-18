@@ -31,7 +31,7 @@ export default function Button({
 
     return (
         <button
-            className={clsx('p-4 cursor-pointer on-hover', rounded && 'rounded-lg', styleByVariant, className)}
+            className={clsx('p-4 cursor-pointer on-hover', rounded && 'rounded-lg', loading && 'flex justify-center items-center w-full', styleByVariant, className)}
             onClick={onClick}
             disabled={loading}
             {...props}
