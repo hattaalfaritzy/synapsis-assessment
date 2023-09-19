@@ -11,7 +11,7 @@ export default function Footer() {
             <div className='flex justify-center items-center w-full bg-primary py-2 hide-mobile'>
                 <span className='text-sm text-white'>© Synapsis Assessment - Muh. Hatta Alfaritzy</span>
             </div>
-            <div className='flex flex-row w-full shadow-lg -mb-1'>
+            <div className='flex flex-row w-full shadow-lg -mb-1 hide-website'>
                 {NAV_MENU.map((item: any, index: string | number) => {
                     const isActive = pathname.startsWith(item.href);
                     return (
