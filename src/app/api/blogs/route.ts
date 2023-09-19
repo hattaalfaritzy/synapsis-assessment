@@ -6,7 +6,7 @@ export async function GET(request: Request) {
     const obj = Object.fromEntries(searchParams.entries())
 
     const res = await fetchApi({
-        url: `/posts/?page=${obj.page}&limit=${obj.limit}`,
+        url: `/posts?page=${obj.page}&per_page=${obj.per_page}`,
         method: 'GET'
     });
       

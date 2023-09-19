@@ -1,9 +1,16 @@
 import { fetchApi } from '@/utils/api';
 
+const isDevelopment = process.env.NODE_ENV === 'development';
+    
+const baseUrl = isDevelopment
+    ? 'http://localhost:3003/api/'
+    : process.env.BASE_URL;
+
 export const getBlogs = async ({ page, per_page }: BlogsInterface.APIParamsBlogs) => {
     try {
         const res: BlogsInterface.ApiResponseBlogs = await fetchApi({
-            url: `/posts?page=${page}&per_page=${per_page}`,
+            baseUrl: baseUrl,
+            url: `/blogs?page=${page}&per_page=${per_page}`,
             method: 'GET',
         });
         return res;
@@ -15,8 +22,8 @@ export const getBlogs = async ({ page, per_page }: BlogsInterface.APIParamsBlogs
 export const getBlogDetail = async (id: number) => {
     try {
         const res: BlogsInterface.Blogs = await fetchApi({
-            baseUrl: 'https://gorest.co.in/public/v2',
-            url: `/posts/${id}`,
+            baseUrl: baseUrl,
+            url: `/blogs/${id}`,
             method: 'GET',
         });
         return res;
@@ -28,8 +35,8 @@ export const getBlogDetail = async (id: number) => {
 export const getBlogComments = async (id: number) => {
     try {
         const res: BlogsInterface.Comments[] = await fetchApi({
-            baseUrl: 'https://gorest.co.in/public/v2',
-            url: `/posts/${id}/comments`,
+            baseUrl: baseUrl,
+            url: `/comment-post/${id}`,
             method: 'GET',
         });
         return res;
@@ -41,8 +48,8 @@ export const getBlogComments = async (id: number) => {
 export const getUsersPost = async (id: number) => {
     try {
         const res: UsersInterface.Users[] = await fetchApi({
-            baseUrl: 'https://gorest.co.in/public/v2',
-            url: `/users/${id}/posts`,
+            baseUrl: baseUrl,
+            url: `/user-post/${id}`,
             method: 'GET',
         });
         return res;

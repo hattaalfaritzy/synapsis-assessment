@@ -15,8 +15,6 @@ const nextConfig = {
     },    
     experimental: {
         serverActions: true,
-        serverComponents: true,
-        concurrentFeatures: true,
     },    
     trailingSlash: false,
     env: {

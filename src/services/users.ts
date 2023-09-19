@@ -1,8 +1,15 @@
 import { fetchApi } from '@/utils/api';
 
+const isDevelopment = process.env.NODE_ENV === 'development';
+    
+const baseUrl = isDevelopment
+    ? 'http://localhost:3003/api/'
+    : process.env.BASE_URL;
+
 export const getUsers = async ({ page, per_page }: BlogsInterface.APIParamsBlogs) => {
     try {
         const res: UsersInterface.ApiResponseUsers = await fetchApi({
+            baseUrl: baseUrl,
             url: `/users?page=${page}&per_page=${per_page}`,
             method: 'GET',
         });
@@ -15,7 +22,7 @@ export const getUsers = async ({ page, per_page }: BlogsInterface.APIParamsBlogs
 export const getUserDetail = async (id: number) => {
     try {
         const res: UsersInterface.Users = await fetchApi({
-            baseUrl: 'https://gorest.co.in/public/v2',
+            baseUrl: baseUrl,
             url: `/users/${id}`,
             method: 'GET',
         });

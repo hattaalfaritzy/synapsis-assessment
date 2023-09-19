@@ -3,7 +3,9 @@ import axios from 'axios';
 
 const timeout = Number(process.env.API_TIMEOUT || 15000);
 
-export const fetchApi = async ({ method, baseUrl = process.env.BASE_URL, url, params, data, headers, ...rest }: Props) => {
+export const fetchApi = async ({ method, baseUrl = process.env.BASE_URL, useV2 = false, url, params, data, headers, ...rest }: Props) => {
+    const finalBaseUrl = useV2 ? process.env.BASE_URL_V2 : baseUrl;
+
     const finalHeaders = {
         Authorization: `Bearer ${process.env.TOKEN_AUTH}`,
         rejectUnauthorized: false,
@@ -16,7 +18,7 @@ export const fetchApi = async ({ method, baseUrl = process.env.BASE_URL, url, pa
 
     const response = await axios({
         timeout,
-        baseURL: baseUrl || undefined,
+        baseURL: finalBaseUrl || undefined,
         url,
         params,
         method,
@@ -34,4 +36,5 @@ interface Props {
     params?: Record<string, unknown>;
     data?: Record<string, unknown>;
     headers?: Record<string, unknown>;
+    useV2?: boolean;
 }
