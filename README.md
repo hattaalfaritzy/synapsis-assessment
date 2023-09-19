@@ -2,7 +2,7 @@
  This project was created as part of the assessment test for Synapsis's Frontend Engineer role. The application was built using the Next.js framework and other modern tools.
 
 ## 🚢 Deploy
-
+https://synapsis-assessment.vercel.app/
 
 ## 🚀 Getting Started
 

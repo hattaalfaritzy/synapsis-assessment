@@ -3,7 +3,7 @@ import { fetchApi } from '@/utils/api';
 const isDevelopment = process.env.NODE_ENV === 'development';
     
 const baseUrl = isDevelopment
-    ? 'http://localhost:3003/api/'
+    ? 'http://localhost:3000/api/'
     : process.env.BASE_URL;
 
 export const getBlogs = async ({ page, per_page }: BlogsInterface.APIParamsBlogs) => {
