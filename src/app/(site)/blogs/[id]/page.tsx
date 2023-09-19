@@ -35,7 +35,7 @@ export default function DetailBlog() {
                 <ListForm title='Title' value={dataDetail?.title} loading={loading} />
                 <ListForm title='Content' value={dataDetail?.body} loading={loading} />
             </Card>
-            <div className='grid grid-cols-2 w-full gap-x-8'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 w-full gap-x-8'>
                 {dataComments.length > 0 && (
                     <div className='flex flex-col w-full space-y-4'>
                         <HeadingLink title='Comments Blog' />

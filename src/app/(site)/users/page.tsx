@@ -70,10 +70,10 @@ export default function UsersPage() {
                         key={index}
                         withShadow
                         canHover={false}
-                        className='flex flex-row justify-between items-center w-full'
+                        className='flex flex-col lg:flex-row justify-start lg:justify-between items-start lg:items-center w-full space-y-3 lg:space-y-0'
                     >
                         <ListForm title={value.name} value={value.email} loading={loading} classNameValue='text-black text-xs lowercase' />
-                        <div className='flex flex-row space-x-2 justify-center items-center'>
+                        <div className='flex flex-row space-x-2 justify-end lg:justify-center items-end lg:items-center w-full lg:w-auto'>
                             <Button
                                 className='p-2.5 rounded-full'
                                 onClick={() => {
