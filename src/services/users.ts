@@ -4,7 +4,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
     
 const baseUrl = isDevelopment
     ? 'http://localhost:3000/api/'
-    : process.env.BASE_URL;
+    : process.env.NEXT_PUBLIC_BASE_URL;
 
 export const getUsers = async ({ page, per_page }: BlogsInterface.APIParamsBlogs) => {
     try {
