@@ -7,7 +7,6 @@ const baseUrl = isDevelopment
     : process.env.NEXT_PUBLIC_BASE_URL;
 
 export const getBlogs = async ({ page, per_page }: BlogsInterface.APIParamsBlogs) => {
-    console.log(process.env.BASE_URL, 'process.env.BASE_URL');
     try {
         const res: BlogsInterface.ApiResponseBlogs = await fetchApi({
             baseUrl: baseUrl,

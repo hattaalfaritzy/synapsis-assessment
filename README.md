@@ -9,8 +9,10 @@ https://synapsis-assessment.vercel.app/
 1. **Setting up the Environment.**
 Before starting the development server, ensure you have set up the necessary environment variables. Create a .env.local file in the root of the project and add:
 ```
-NEXT_PUBLIC_BASE_URL= https://github.com/hattaalfaritzy/synapsis-assessment/api/
-BASE_URL = https://pokeapi.co/api/v2
+NEXT_PUBLIC_BASE_URL = https://nusameta-assessment.vercel.app/api/
+TOKEN_AUTH = *Generate your token from gorest.co.in*
+BASE_URL = https://gorest.co.in/public/v1
+BASE_URL_V2 = https://gorest.co.in/public/v2
 API_TIMEOUT = 150000
 ```
 
@@ -35,9 +37,10 @@ Once started, open http://localhost:3000 with your browser to see the applicatio
 ## 🛠 Tools and Libraries
 This project uses a range of modern libraries and tools:
 - **Next.js**: The core framework.
-- **React Query**: A library for data-fetching, caching, synchronization, and updates in React.
 - **TailwindCSS**: A utility-first CSS framework for rapid UI development.
 - **SASS**: A preprocessor scripting language that is interpreted or compiled into CSS..
+- **React Hook Form**: Efficient form management
+- **yup**: Object schema validation.
 
 ## File Structure
 
